@@ -13,13 +13,13 @@ module Bundler
       def optionally_install_doc(spec)
         if Bundler.settings[:ri]
           docm ||= Gem::DocManager.new(spec)
-          Bundler.ui.info " +ri"
+          Bundler.ui.info "\nInstalling ri documentation for #{spec.name} (#{spec.version}) "
           docm.generate_ri
         end
 
         if Bundler.settings[:rdoc]
           docm ||= Gem::DocManager.new(spec)
-          Bundler.ui.info " +rdoc"
+          Bundler.ui.info "\nInstalling RDoc documentation for #{spec.name} (#{spec.version}) "
           docm.generate_rdoc
         end
       end
